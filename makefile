@@ -13,7 +13,7 @@ UBOOT_TAR_SHA := fe732aaf037d9cc3c0909bad8362af366ae964bbdac6913a34081ff4ad56537
 
 KERNEL_MAKE := cd $(SRC_DIR) ; $(MAKE) 
 %:
-	@if [ "$(MAKECMDGOALS)" != "build_init" ] && [ "$(MAKECMDGOALS)" != "AX630C_m5stack_LITE_defconfig" ] ; then \
+	@if [ "$(MAKECMDGOALS)" != "build_init" ] ; then \
 		$(MAKE) build_init ; \
 		$(KERNEL_MAKE) dtb-y=m5stack-ax630c-lite.dtb DEVICE_TREE=m5stack-ax630c-lite EXTRA_CFLAGS=-DUBOOT_IMG_HEADER_BASE=0x5C000000 $(MAKECMDGOALS) ; \
 		if [ -f "u-boot" ] ; then cp u-boot* ../.. ; fi ; \
@@ -66,13 +66,11 @@ build/check_patch.tmp:$(PATCHES)
 	@touch build/check_patch.tmp
 
 build/check_config.tmp:$(CONFIG_FILES)
-	@[ -f '$(SRC_DIR)/.config' ] || $(KERNEL_MAKE) AX630C_m5stack_LITE_defconfig
-	@[ -L '.config' ] || ln -s $(SRC_DIR)/.config .config
 	@touch build/check_config.tmp
 
 distclean:
 	@rm -f build -rf
-	@rm -f u-boot u-boot.* u-boot*.bin .config
+	@rm -f u-boot u-boot.* u-boot*.bin
 
 uboot-distclean:
 	@$(KERNEL_MAKE) distclean
