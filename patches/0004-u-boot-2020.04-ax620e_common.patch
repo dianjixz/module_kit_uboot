@@ -1,6 +1,6 @@
 --- a/include/configs/ax620e_common.h	2024-12-05 14:14:51.131527778 +0800
 +++ b/include/configs/ax620e_common.h	2024-12-05 14:14:57.663677057 +0800
-@@ -130,4 +130,8 @@
+@@ -132,4 +132,8 @@
  mtdparts=spi5.0:4M(uboot),768K(env),1M(atf),1M(dtb),32M(kernel),512K(param),192M(rootfs)"
  #endif
  
