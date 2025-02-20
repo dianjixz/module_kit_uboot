@@ -5,8 +5,10 @@ Compilation will automatically download and apply the relevant patches to compil
 
 auto compile:
 ```bash
-make ARCH=arm CROSS_COMPILE=aarch64-none-linux-gnu- AX630C_m5stack_LITE_defconfig
-make ARCH=arm CROSS_COMPILE=aarch64-none-linux-gnu- -j `nproc`
+source /opt/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bash.bashrc
+make ARCH=arm CROSS_COMPILE=aarch64-linux-gnu- AX630C_m5stack_LITE_defconfig
+make ARCH=arm CROSS_COMPILE=aarch64-linux-gnu- -j `nproc`
+axp_pack_bin ./u-boot-dtb.bin u-boot_signed.bin
 ```
 
 just Extract:
