@@ -10,12 +10,12 @@ CONFIG_FILES := $(wildcard *.config)
 UBOOT_TAR_SHA := fe732aaf037d9cc3c0909bad8362af366ae964bbdac6913a34081ff4ad565372
 # AX630C_KERNEL_PARAM := ARCH=arm CROSS_COMPILE=aarch64-none-linux-gnu- 
 # KERNEL_MAKE := cd $(SRC_DIR) ; $(MAKE) $(AX630C_KERNEL_PARAM)
-
+PROJECT = AX630C_emmc_arm64_k419
 KERNEL_MAKE := cd $(SRC_DIR) ; $(MAKE) 
 %:
 	@if [ "$(MAKECMDGOALS)" != "build_init" ] ; then \
 		$(MAKE) build_init ; \
-		$(KERNEL_MAKE) dtb-y=m5stack-ax630c-lite.dtb DEVICE_TREE=m5stack-ax630c-lite EXTRA_CFLAGS=-DUBOOT_IMG_HEADER_BASE=0x5C000000 $(MAKECMDGOALS) ; \
+		$(KERNEL_MAKE) dtb-y=m5stack-ax630c-lite.dtb DEVICE_TREE=m5stack-ax630c-lite EXTRA_CFLAGS=-DUBOOT_IMG_HEADER_BASE=0x5C000000 $(MAKECMDGOALS) PROJECT=AX630C_emmc_arm64_k419 ; \
 		if [ -f "u-boot" ] ; then cp u-boot* ../.. ; fi ; \
 	fi
 
