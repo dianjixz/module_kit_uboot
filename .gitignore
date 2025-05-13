@@ -4,3 +4,5 @@ build
 u-boot
 u-boot.*
 u-boot*.bin
+u-boot-dtb.bin.lz77
+u-boot-dtb.bin.json

@@ -1,0 +1,11 @@
+--- a/cmd/axera/setup_boot/setup_boot.c	2025-05-13 17:19:16.312011215 +0800
++++ b/cmd/axera/setup_boot/setup_boot.c	2025-05-13 17:19:11.755924065 +0800
+@@ -35,7 +35,7 @@
+ #include <linux/time.h>
+ #include <elf.h>
+ #ifdef CONFIG_AXERA_SUPPORT_MEMORY_DUMP
+-#include "memory_dump/memory_dump.h"
++#include "../memory_dump/memory_dump.h"
+ #endif
+ 
+ extern struct boot_mode_info boot_info_data;
